@@ -120,7 +120,7 @@ Resources:
   AGWEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t2.medium
       # ImageId: ami-03f6d497fceb40069
       ImageId:
         Fn::FindInMap:
@@ -181,7 +181,7 @@ Resources:
   SrsEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t2.medium
       # ImageId: ami-03f6d497fceb40069
       ImageId:
         Fn::FindInMap:

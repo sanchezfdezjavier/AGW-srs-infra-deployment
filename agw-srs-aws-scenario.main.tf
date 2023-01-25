@@ -1,6 +1,4 @@
-# TODO: Review whole template.
-# TODO: Change instance types from free tier, to the actual required ones.
-# TODO: AGW kernel downgrade.
+# REMIND TO DOWNGRADE THE KERNEL TO 5.4.0-1045-aws FOR AGW TO WORK
 
 terraform {
   required_providers {
@@ -164,7 +162,7 @@ resource "aws_route_table" "agw_srs_route_public" {
 
 resource "aws_instance" "agwec2_instance" {
   ami = local.mappings["RegionMap"][var.aws_region]["Ubuntu2004LTS"] // Manually changed
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name = var.key_name
   monitoring = false
   user_data = "echo hello world"
@@ -220,7 +218,7 @@ resource "aws_network_interface" "agws1_network_interface" {
 }
 
 resource "aws_instance" "srs_ec2_instance" {
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   ami = local.mappings["RegionMap"][var.aws_region]["Ubuntu2004LTS"]
   key_name = var.key_name
   monitoring = false
